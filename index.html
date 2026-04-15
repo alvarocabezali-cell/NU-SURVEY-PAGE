@@ -203,24 +203,6 @@
       background: #003B49;
     }
 
-    /* ── FOOTER ── */
-    .footer {
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid #e2e8f0;
-      text-align: center;
-      color: #94a3b8;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .footer a {
-      color: #5aab1e;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer a:hover { text-decoration: underline; }
-
     /* ── SMILEY ICON ── */
     .smiley-icon {
       display: flex;
@@ -308,27 +290,38 @@
       const text = document.getElementById('searchText').innerText;
       const btn = document.getElementById('copyBtn');
 
-      navigator.clipboard.writeText(text).then(() => {
+      function showCopied() {
         btn.textContent = '✓ Copied!';
         btn.classList.add('copied');
         setTimeout(() => {
           btn.textContent = 'Copy to Clipboard';
           btn.classList.remove('copied');
         }, 2500);
-      }).catch(() => {
+      }
+
+      function fallback() {
         const textarea = document.createElement('textarea');
         textarea.value = text;
+        textarea.style.position = 'fixed';
+        textarea.style.opacity = '0';
         document.body.appendChild(textarea);
+        textarea.focus();
         textarea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textarea);
-        btn.textContent = '✓ Copied!';
-        btn.classList.add('copied');
-        setTimeout(() => {
-          btn.textContent = 'Copy to Clipboard';
-          btn.classList.remove('copied');
-        }, 2500);
-      });
+        try {
+          document.execCommand('copy');
+          showCopied();
+        } catch (e) {
+          btn.textContent = 'Select & copy manually';
+        } finally {
+          document.body.removeChild(textarea);
+        }
+      }
+
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showCopied).catch(fallback);
+      } else {
+        fallback();
+      }
     }
   </script>
 </body>
