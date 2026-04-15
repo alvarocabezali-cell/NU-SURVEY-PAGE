@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Survey Email | NU Car Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #1a1a2e;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ── LOGO BAR ── */
+    .logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding: 16px 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .logo-nu {
+      height: 48px;
+    }
+
+    .logo-divider {
+      width: 1px;
+      height: 36px;
+      background: #cbd5e0;
+    }
+
+    .logo-expedia {
+      height: 32px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #003B49; /* NÜ dark teal */
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      margin-bottom: 22px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: #e8f5e2; /* light NÜ green */
+      color: #5aab1e;      /* NÜ green */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 15px;
+      color: #334155;
+      padding-top: 3px;
+    }
+
+    /* ── SEARCH BOX ── */
+    .search-box {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+
+    .search-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .search-text {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+      color: #003B49;
+      word-break: break-all;
+      line-height: 1.5;
+      user-select: all;
+      font-weight: 600;
+    }
+
+    /* ── BUTTON — NÜ green ── */
+    .copy-btn {
+      width: 100%;
+      padding: 16px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      color: #ffffff;
+      background: #5aab1e; /* NÜ bright green */
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
+      box-shadow: 0 4px 14px rgba(90,171,30,0.35);
+    }
+
+    .copy-btn:hover {
+      background: #4e9619;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(90,171,30,0.4);
+    }
+
+    .copy-btn:active {
+      transform: translateY(0);
+    }
+
+    .copy-btn.copied {
+      background: #003B49; /* NÜ dark teal */
+      box-shadow: 0 4px 14px rgba(0,59,73,0.3);
+    }
+
+    /* ── INLINE SEARCH BOX (after step 1) ── */
+    .search-box-inline {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin: 8px 0 8px 42px;
+    }
+
+    .copy-btn-small {
+      display: block;
+      width: calc(100% - 42px);
+      margin: 0 0 18px 42px;
+      padding: 11px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      background: #5aab1e;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 3px 10px rgba(90,171,30,0.3);
+    }
+
+    .copy-btn-small:hover {
+      background: #4e9619;
+      transform: translateY(-1px);
+    }
+
+    .copy-btn-small.copied {
+      background: #003B49;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      margin-top: 24px;
+      padding-top: 18px;
+      border-top: 1px solid #e2e8f0;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 13px;
+      line-height: 1.6;
+    }
+
+    .footer a {
+      color: #5aab1e;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── SMILEY ICON ── */
+    .smiley-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px auto;
+      width: 52px;
+      height: 52px;
+    }
+
+    .smiley-svg {
+      width: 52px;
+      height: 52px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- ══ LOGO BAR ══ -->
+    <div class="logos">
+
+      <!-- NÜ CAR RENTALS actual logo -->
+      <img class="logo-nu" src="data:image/png;base64,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" alt="NÜ Car Rentals" />
+
+      <div class="logo-divider"></div>
+
+      <!-- Expedia logo (recreated from brand image) -->
+      <svg class="logo-expedia" viewBox="0 0 110 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Yellow arrow box -->
+        <rect x="0" y="4" width="24" height="24" rx="5" fill="#FFC72C"/>
+        <!-- Arrow icon (↗) in dark navy -->
+        <path d="M7 20 L16 11 M16 11 H9 M16 11 V18" stroke="#003057" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        <!-- "Expedia" wordmark -->
+        <text x="30" y="22" font-family="'DM Sans', Georgia, serif" font-size="16" font-weight="700" fill="#003057">Expedia</text>
+      </svg>
+
+    </div>
+
+
+    <p class="subtitle">We'd love your feedback! Here's how to find the survey email in your inbox:</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Tap the button below to copy the search text</div>
+      </div>
+
+      <!-- Search box inline after step 1 -->
+      <div class="search-box-inline">
+        <div class="search-label">Search text</div>
+        <div class="search-text" id="searchText">subject:"Your car hire experience with NU"</div>
+      </div>
+      <button class="copy-btn-small" id="copyBtn" onclick="copyText()">Copy to Clipboard</button>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open your email app</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Tap the search bar and paste</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Happy with your experience? Leave us a good review by clicking the smiley face below 😊</div>
+      </div>
+    </div>
+
+    <!-- Smiley face review button -->
+    <div class="smiley-icon">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="smiley-svg">
+        <circle cx="50" cy="50" r="44" stroke="#5aab1e" stroke-width="6" fill="none"/>
+        <circle cx="36" cy="40" r="5" fill="#5aab1e"/>
+        <circle cx="64" cy="40" r="5" fill="#5aab1e"/>
+        <path d="M30 58 Q50 78 70 58" stroke="#5aab1e" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+
+  </div>
+
+  <script>
+    function copyText() {
+      const text = document.getElementById('searchText').innerText;
+      const btn = document.getElementById('copyBtn');
+
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2500);
+      }).catch(() => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
