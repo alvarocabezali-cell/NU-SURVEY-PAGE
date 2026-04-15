@@ -110,15 +110,6 @@
       padding-top: 3px;
     }
 
-    /* ── SEARCH BOX ── */
-    .search-box {
-      background: #f1f5f9;
-      border: 1px solid #e2e8f0;
-      border-radius: 12px;
-      padding: 16px;
-      margin-bottom: 20px;
-    }
-
     .search-label {
       font-size: 11px;
       text-transform: uppercase;
@@ -135,37 +126,6 @@
       line-height: 1.5;
       user-select: all;
       font-weight: 600;
-    }
-
-    /* ── BUTTON — NÜ green ── */
-    .copy-btn {
-      width: 100%;
-      padding: 16px 24px;
-      font-family: 'DM Sans', sans-serif;
-      font-size: 16px;
-      font-weight: 700;
-      color: #ffffff;
-      background: #5aab1e; /* NÜ bright green */
-      border: none;
-      border-radius: 12px;
-      cursor: pointer;
-      transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.2s ease;
-      box-shadow: 0 4px 14px rgba(90,171,30,0.35);
-    }
-
-    .copy-btn:hover {
-      background: #4e9619;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(90,171,30,0.4);
-    }
-
-    .copy-btn:active {
-      transform: translateY(0);
-    }
-
-    .copy-btn.copied {
-      background: #003B49; /* NÜ dark teal */
-      box-shadow: 0 4px 14px rgba(0,59,73,0.3);
     }
 
     /* ── INLINE SEARCH BOX (after step 1) ── */
@@ -202,24 +162,6 @@
     .copy-btn-small.copied {
       background: #003B49;
     }
-
-    /* ── FOOTER ── */
-    .footer {
-      margin-top: 24px;
-      padding-top: 18px;
-      border-top: 1px solid #e2e8f0;
-      text-align: center;
-      color: #94a3b8;
-      font-size: 13px;
-      line-height: 1.6;
-    }
-
-    .footer a {
-      color: #5aab1e;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    .footer a:hover { text-decoration: underline; }
 
     /* ── SMILEY ICON ── */
     .smiley-icon {
@@ -261,6 +203,7 @@
     </div>
 
 
+    <h1>Find Your Survey Email</h1>
     <p class="subtitle">We'd love your feedback! Here's how to find the survey email in your inbox:</p>
 
     <div class="steps">
@@ -286,13 +229,13 @@
       </div>
       <div class="step">
         <div class="step-num">4</div>
-        <div class="step-text">Happy with your experience? Leave us a good review by clicking the smiley face below 😊</div>
+        <div class="step-text">Happy with your experience? Open the survey and leave us a good review by clicking the smiley face in the email</div>
       </div>
     </div>
 
-    <!-- Smiley face review button -->
-    <div class="smiley-icon">
-      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="smiley-svg">
+    <!-- Smiley face illustration -->
+    <div class="smiley-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="smiley-svg" role="img" aria-label="Smiley face illustration">
         <circle cx="50" cy="50" r="44" stroke="#5aab1e" stroke-width="6" fill="none"/>
         <circle cx="36" cy="40" r="5" fill="#5aab1e"/>
         <circle cx="64" cy="40" r="5" fill="#5aab1e"/>
