@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Find Your Survey Email | Drive Rental Cars</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      min-height: 100vh;
+      background: #f5f5f5;
+      color: #1a1a2e;
+      padding: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 20px;
+      padding: 32px 24px;
+      max-width: 400px;
+      width: 100%;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ── LOGO BAR ── */
+    .logos {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 28px;
+      padding: 16px 20px;
+      background: #f8f9fa;
+      border-radius: 12px;
+    }
+
+    .logo-drive {
+      height: 52px;
+    }
+
+    /* ── TYPOGRAPHY ── */
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #3d1f7a; /* Drive purple */
+    }
+
+    .subtitle {
+      color: #64748b;
+      font-size: 15px;
+      line-height: 1.5;
+      margin-bottom: 24px;
+      text-align: center;
+    }
+
+    /* ── STEPS ── */
+    .steps {
+      margin-bottom: 22px;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin-bottom: 14px;
+    }
+
+    .step-num {
+      width: 28px;
+      height: 28px;
+      background: #ede8f8; /* light Drive purple */
+      color: #6b3fa0;      /* Drive purple */
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .step-text {
+      font-size: 15px;
+      color: #334155;
+      padding-top: 3px;
+    }
+
+    .search-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+    }
+
+    .search-text {
+      font-family: 'SF Mono', 'Fira Code', 'Consolas', monospace;
+      font-size: 14px;
+      color: #3d1f7a;
+      word-break: break-all;
+      line-height: 1.5;
+      user-select: all;
+      font-weight: 600;
+    }
+
+    /* ── INLINE SEARCH BOX (after step 1) ── */
+    .search-box-inline {
+      background: #f1f5f9;
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 10px 14px;
+      margin: 8px 0 8px 42px;
+    }
+
+    .copy-btn-small {
+      display: block;
+      width: calc(100% - 42px);
+      margin: 0 0 18px 42px;
+      padding: 11px 18px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      font-weight: 700;
+      color: #ffffff;
+      background: #6b3fa0;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background 0.2s ease, transform 0.15s ease;
+      box-shadow: 0 3px 10px rgba(107,63,160,0.3);
+    }
+
+    .copy-btn-small:hover {
+      background: #5a3388;
+      transform: translateY(-1px);
+    }
+
+    .copy-btn-small.copied {
+      background: #3d1f7a;
+    }
+
+    /* ── SMILEY ICON ── */
+    .smiley-icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 20px auto;
+      width: 52px;
+      height: 52px;
+    }
+
+    .smiley-svg {
+      width: 52px;
+      height: 52px;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+
+    <!-- ══ LOGO BAR ══ -->
+    <div class="logos">
+      <!-- Drive Rental Cars logo (SVG recreation) -->
+      <svg class="logo-drive" viewBox="0 0 160 52" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Drive Rental Cars">
+        <!-- D with notch -->
+        <path d="M4 8 L4 44 L18 44 C28 44 36 36 36 26 C36 16 28 8 18 8 Z M12 16 L17 16 C23 16 27 20.5 27 26 C27 31.5 23 36 17 36 L12 36 Z" fill="#6b3fa0"/>
+        <!-- R -->
+        <path d="M40 8 L40 44 L48 44 L48 30 L53 30 L60 44 L69 44 L61 29 C65 27 67 23 67 19 C67 12.5 62 8 55 8 Z M48 16 L54 16 C57.5 16 59 17.8 59 20 C59 22.2 57.5 24 54 24 L48 24 Z" fill="#6b3fa0"/>
+        <!-- I -->
+        <rect x="72" y="8" width="8" height="36" fill="#6b3fa0"/>
+        <!-- V -->
+        <path d="M84 8 L94 44 L100 44 L110 8 L102 8 L97 30 L92 8 Z" fill="#6b3fa0"/>
+        <!-- E -->
+        <path d="M114 8 L114 44 L140 44 L140 36 L122 36 L122 30 L138 30 L138 22 L122 22 L122 16 L140 16 L140 8 Z" fill="#6b3fa0"/>
+        <!-- ® -->
+        <text x="142" y="16" font-family="'DM Sans', sans-serif" font-size="9" fill="#6b3fa0" font-weight="400">®</text>
+        <!-- RENTAL CARS subtitle -->
+        <text x="4" y="51" font-family="'DM Sans', sans-serif" font-size="9" fill="#6b3fa0" font-weight="600" letter-spacing="3">RENTAL CARS</text>
+      </svg>
+    </div>
+
+    <h1>Find Your Survey Email</h1>
+    <p class="subtitle">We'd love your feedback! Here's how to find the survey email in your inbox:</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-text">Tap the button below to copy the search text</div>
+      </div>
+
+      <!-- Search box inline after step 1 -->
+      <div class="search-box-inline">
+        <div class="search-label">Search text</div>
+        <div class="search-text" id="searchText">subject:"Your car rental experience with Drive Rental Cars"</div>
+      </div>
+      <button class="copy-btn-small" id="copyBtn" onclick="copyText()">Copy to Clipboard</button>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-text">Open your email app</div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-text">Tap the search bar and paste</div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-text">Happy with your experience? Open the survey and leave us a good review by clicking the smiley face in the email</div>
+      </div>
+    </div>
+
+    <!-- Smiley face illustration -->
+    <div class="smiley-icon" aria-hidden="true">
+      <svg viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" class="smiley-svg" role="img" aria-label="Smiley face illustration">
+        <circle cx="50" cy="50" r="44" stroke="#6b3fa0" stroke-width="6" fill="none"/>
+        <circle cx="36" cy="40" r="5" fill="#6b3fa0"/>
+        <circle cx="64" cy="40" r="5" fill="#6b3fa0"/>
+        <path d="M30 58 Q50 78 70 58" stroke="#6b3fa0" stroke-width="6" fill="none" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+  </div>
+
+  <script>
+    function copyText() {
+      const text = document.getElementById('searchText').innerText;
+      const btn = document.getElementById('copyBtn');
+
+      navigator.clipboard.writeText(text).then(() => {
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2500);
+      }).catch(() => {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        document.execCommand('copy');
+        document.body.removeChild(textarea);
+        btn.textContent = '✓ Copied!';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.textContent = 'Copy to Clipboard';
+          btn.classList.remove('copied');
+        }, 2500);
+      });
+    }
+  </script>
+</body>
+</html>
