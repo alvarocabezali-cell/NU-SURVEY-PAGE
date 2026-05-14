@@ -156,15 +156,6 @@ def main():
     c.setFillColor(DRIVE_PURPLE_DARK)
     c.drawCentredString(page_w / 2, y, "Scan with your phone camera")
 
-    y -= 6 * mm
-    c.setFont("Helvetica", 10.5)
-    c.setFillColor(MUTED)
-    c.drawCentredString(
-        page_w / 2,
-        y,
-        "Or visit: alvarocabezali-cell.github.io/NU-SURVEY-PAGE/drive.html",
-    )
-
     # Footer line
     foot_y = margin + 10 * mm
     c.setStrokeColor(HexColor("#e2d9f5"))
